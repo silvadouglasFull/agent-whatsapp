@@ -12,6 +12,14 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.ngrok-free.app', // Permite qualquer subdomínio do ngrok
+      },
+    ],
+  },
 };
 
 export default nextConfig;
