@@ -11,46 +11,40 @@ export interface WhatsAppBusinessAccount {
         };
     };
 }
-export interface WhatsappRequestCode {
+export type WhatsappRequestCode = {
     whatsappBussinessPhoneNumberId: number;
     codeMethod?: 'SMS' | 'VOICE';
     language?: string
 }
 
-export interface WhatsappVerifyCode {
+export type WhatsappVerifyCode = {
     whatsappBussinessPhoneNumberId: number;
     code: string
 }
-export interface WhatsappRegisterPhone {
+export type WhatsappRegisterPhone = {
     whatsappBussinessPhoneNumberId: number;
     messagingProduct: string;
     pin: string;
 }
-export interface WhatsappCreatePhone {
+export type WhatsappCreatePhone = {
     whatsappBussinessPhoneNumberId: number;
     cc: string;
     phoneNumber: string;
     verifedName: string;
 }
-export interface WhatsAppAccountsResponse {
+export type WhatsAppAccountsResponse = {
     data: WhatsAppBusinessAccount[];
 }
-export interface WhatsappRequestCodeResponse {
+export type WhatsappRequestCodeResponse = {
     success: boolean
 }
-export interface WhatsappVerifyCodeResponse {
+export type WhatsappVerifyCodeResponse = {
     success: boolean
 }
-export interface WhatsappRegisterPhoneResponse {
+export type WhatsappRegisterPhoneResponse = {
     success: boolean
 }
-export interface WhatsappCreatePhoneReponse {
+export type WhatsappCreatePhoneReponse = {
     id: number
 }
-export interface IWhatsAppService {
-    requestCode(whatsappRequestCode: WhatsappRequestCode): Promise<WhatsappRequestCodeResponse>;
-    verifyCode(whatsappVerifyCode: WhatsappVerifyCode): Promise<WhatsappVerifyCodeResponse>;
-    registerPhone(whatsappRegisterPhone: WhatsappRegisterPhone): Promise<WhatsappRegisterPhoneResponse>;
-    createPhone(whatsappCreatePhone: WhatsappCreatePhone): Promise<WhatsappCreatePhoneReponse>;
-    getOwnedAccounts(): Promise<WhatsAppAccountsResponse>;
-}
+

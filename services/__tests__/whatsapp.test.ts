@@ -33,11 +33,12 @@ describe('FacebookWhatsAppService', () => {
    * Tests if requestCode successfully requests a verification code.
    */
   it('should request verification code successfully', async () => {
+    // PASSOU: Bate com whatsappRequestCodeResponseSchema { success: boolean }
     const mockResponse = { data: { success: true } };
     mockClient.post.mockResolvedValue(mockResponse);
 
     const result = await whatsappService.requestCode({
-      whatsappBussinessPhoneNumberId: '123',
+      whatsappBussinessPhoneNumberId: 123,
       codeMethod: 'SMS',
       language: 'pt_BR',
     });
@@ -53,11 +54,12 @@ describe('FacebookWhatsAppService', () => {
    * Tests if verifyCode successfully validates the code.
    */
   it('should verify code successfully', async () => {
+    // PASSOU: Bate com whatsappVerifyCodeResponseSchema { success: boolean }
     const mockResponse = { data: { success: true } };
     mockedAxios.post.mockResolvedValue(mockResponse);
 
     const result = await whatsappService.verifyCode({
-      whatsappBussinessPhoneNumberId: '123',
+      whatsappBussinessPhoneNumberId: 123,
       code: '123456',
     });
 
@@ -72,11 +74,12 @@ describe('FacebookWhatsAppService', () => {
    * Tests if registerPhone successfully registers the phone number.
    */
   it('should register phone successfully', async () => {
+    // PASSOU: Bate com whatsappRegisterPhoneResponseSchema { success: boolean }
     const mockResponse = { data: { success: true } };
     mockedAxios.post.mockResolvedValue(mockResponse);
 
     const result = await whatsappService.registerPhone({
-      whatsappBussinessPhoneNumberId: '123',
+      whatsappBussinessPhoneNumberId: 123,
       messagingProduct: 'whatsapp',
       pin: '123456',
     });
@@ -93,11 +96,12 @@ describe('FacebookWhatsAppService', () => {
    * Tests if createPhone successfully creates a phone entry.
    */
   it('should create phone successfully', async () => {
-    const mockResponse = { data: { success: true } };
+    // AJUSTADO: Mudou de { success: true } para { id: 123 } exigido pelo schema
+    const mockResponse = { data: { id: 123 } };
     mockedAxios.post.mockResolvedValue(mockResponse);
 
     const result = await whatsappService.createPhone({
-      whatsappBussinessPhoneNumberId: '123',
+      whatsappBussinessPhoneNumberId: 123,
       cc: '55',
       phoneNumber: '999999999',
       verifedName: 'Test Name',
@@ -115,9 +119,22 @@ describe('FacebookWhatsAppService', () => {
    * Tests if getOwnedAccounts successfully retrieves business accounts.
    */
   it('should fetch owned whatsapp business accounts successfully', async () => {
+    // AJUSTADO: Inserido propriedades obrigatórias do whatsAppBusinessAccountSchema
     const mockResponse = {
       data: {
-        data: [{ id: '123456', name: 'Test Business' }],
+        data: [{
+          id: '123456',
+          name: 'Test Business',
+          currency: 'BRL',
+          timezone_id: 'America/Sao_Paulo',
+          message_template_namespace: 'ns_test',
+          paging: {
+            cursors: {
+              before: 'start_cursor',
+              after: 'end_cursor'
+            }
+          }
+        }],
       },
     };
     mockClient.get.mockResolvedValue(mockResponse);

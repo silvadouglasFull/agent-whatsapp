@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 // app/api/webhook/route.ts
 export async function GET(request: NextRequest) {
+    console.log('Oi')
     const verifyToken = process.env['TOKEN_WEBHOOK'];
     const searchParams = request.nextUrl.searchParams;
     const mode = searchParams.get('hub.mode');
@@ -39,7 +40,6 @@ export async function POST(request: NextRequest) {
         }
     } catch (error) {
         console.error('Erro ao processar o webhook:', error);
-        // Mesmo com erro interno, é recomendado retornar 200 para evitar retentativas contínuas da Meta
         return new NextResponse('Internal Error', { status: 200 });
     }
 }
