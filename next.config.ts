@@ -20,6 +20,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  compiler: {
+    
+  }
 };
 
 export default nextConfig;

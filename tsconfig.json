@@ -36,7 +36,9 @@
       "@services/*": [
         "./services/*"
       ]
-    }
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": [
     "next-env.d.ts",
