@@ -28,9 +28,9 @@ export interface WhatsappRegisterPhone {
 }
 export interface WhatsappCreatePhone {
     whatsappBussinessPhoneNumberId: number;
-    cc:string;
-    phoneNumber:string;
-    verifedName:string;
+    cc: string;
+    phoneNumber: string;
+    verifedName: string;
 }
 export interface WhatsAppAccountsResponse {
     data: WhatsAppBusinessAccount[];
@@ -45,12 +45,12 @@ export interface WhatsappRegisterPhoneResponse {
     success: boolean
 }
 export interface WhatsappCreatePhoneReponse {
-    id:number
+    id: number
 }
 export interface IWhatsAppService {
     requestCode(whatsappRequestCode: WhatsappRequestCode): Promise<WhatsappRequestCodeResponse>;
     verifyCode(whatsappVerifyCode: WhatsappVerifyCode): Promise<WhatsappVerifyCodeResponse>;
     registerPhone(whatsappRegisterPhone: WhatsappRegisterPhone): Promise<WhatsappRegisterPhoneResponse>;
-    createPhone(whatsappCreatePhone: WhatsappCreatePhone):Promise<WhatsappCreatePhoneReponse>;
+    createPhone(whatsappCreatePhone: WhatsappCreatePhone): Promise<WhatsappCreatePhoneReponse>;
     getOwnedAccounts(): Promise<WhatsAppAccountsResponse>;
 }
