@@ -1,5 +1,5 @@
 export interface WhatsAppBusinessAccount {
-    id: string;
+    id: number;
     name: string;
     currency: string;
     timezone_id: string;

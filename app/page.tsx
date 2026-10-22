@@ -1,12 +1,10 @@
-import { facebookWhatsAppService } from "@/services/whatsapp";
-import { WhatsAppForm } from "@ui/whatsapp-form";
+import Link from "next/link";
 export const instant = false
 export default async function WhatsAppPage() {
-  const accounts = await facebookWhatsAppService.getOwnedAccounts();
   return (
     <div>
       <h1>Contas do WhatsApp</h1>
-      <WhatsAppForm accounts={accounts} />
+      <Link href={'/manage-whatsapp-accounts'}>Gerenciar Contas </Link>
     </div>
   );
 }

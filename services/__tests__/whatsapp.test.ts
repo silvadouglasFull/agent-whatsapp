@@ -1,17 +1,17 @@
 /**
  * @file services/__tests__/whatsapp.test.ts
- * @description Unit tests for FacebookWhatsAppService class covering all service methods.
+ * @description Unit tests for MetaWhatsappAccountsService class covering all service methods.
  */
 
-import { FacebookWhatsAppService } from '@/services/whatsapp';
+import { MetaWhatsappAccountsService } from '@/services/manager-accounts';
 import axios from 'axios';
 
 // Mocking axios module to intercept HTTP requests during testing
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-describe('FacebookWhatsAppService', () => {
-  let whatsappService: FacebookWhatsAppService;
+describe('MetaWhatsappAccountsService', () => {
+  let whatsappService: MetaWhatsappAccountsService;
   let mockClient: {
     get: jest.Mock;
     post: jest.Mock;
@@ -26,7 +26,7 @@ describe('FacebookWhatsAppService', () => {
     };
 
     mockedAxios.create.mockReturnValue(mockClient as unknown as axios.AxiosInstance);
-    whatsappService = new FacebookWhatsAppService();
+    whatsappService = new MetaWhatsappAccountsService();
   });
 
   /**
