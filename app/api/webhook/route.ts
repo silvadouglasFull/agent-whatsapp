@@ -1,7 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server';
 // app/api/webhook/route.ts
 export async function GET(request: NextRequest) {
-    console.log('Oi')
     const verifyToken = process.env['TOKEN_WEBHOOK'];
     const searchParams = request.nextUrl.searchParams;
     const mode = searchParams.get('hub.mode');

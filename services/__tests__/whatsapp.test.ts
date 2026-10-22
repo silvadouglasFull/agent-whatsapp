@@ -1,17 +1,17 @@
 /**
  * @file services/__tests__/whatsapp.test.ts
- * @description Unit tests for FacebookWhatsAppService class covering all service methods.
+ * @description Unit tests for MetaWhatsappAccountsService class covering all service methods.
  */
 
-import { FacebookWhatsAppService } from '@/services/whatsapp';
+import { MetaWhatsappAccountsService } from '@/services/manager-accounts';
 import axios from 'axios';
 
 // Mocking axios module to intercept HTTP requests during testing
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-describe('FacebookWhatsAppService', () => {
-  let whatsappService: FacebookWhatsAppService;
+describe('MetaWhatsappAccountsService', () => {
+  let whatsappService: MetaWhatsappAccountsService;
   let mockClient: {
     get: jest.Mock;
     post: jest.Mock;
@@ -26,7 +26,7 @@ describe('FacebookWhatsAppService', () => {
     };
 
     mockedAxios.create.mockReturnValue(mockClient as unknown as axios.AxiosInstance);
-    whatsappService = new FacebookWhatsAppService();
+    whatsappService = new MetaWhatsappAccountsService();
   });
 
   /**
@@ -38,7 +38,7 @@ describe('FacebookWhatsAppService', () => {
     mockClient.post.mockResolvedValue(mockResponse);
 
     const result = await whatsappService.requestCode({
-      whatsappBussinessPhoneNumberId: 123,
+      whatsappBussinessPhoneNumberId: '123',
       codeMethod: 'SMS',
       language: 'pt_BR',
     });
@@ -59,7 +59,7 @@ describe('FacebookWhatsAppService', () => {
     mockedAxios.post.mockResolvedValue(mockResponse);
 
     const result = await whatsappService.verifyCode({
-      whatsappBussinessPhoneNumberId: 123,
+      whatsappBussinessPhoneNumberId: '123',
       code: '123456',
     });
 
@@ -79,7 +79,7 @@ describe('FacebookWhatsAppService', () => {
     mockedAxios.post.mockResolvedValue(mockResponse);
 
     const result = await whatsappService.registerPhone({
-      whatsappBussinessPhoneNumberId: 123,
+      whatsappBussinessPhoneNumberId: '123',
       messagingProduct: 'whatsapp',
       pin: '123456',
     });
@@ -101,7 +101,7 @@ describe('FacebookWhatsAppService', () => {
     mockedAxios.post.mockResolvedValue(mockResponse);
 
     const result = await whatsappService.createPhone({
-      whatsappBussinessPhoneNumberId: 123,
+      whatsappBussinessPhoneNumberId: '123',
       cc: '55',
       phoneNumber: '999999999',
       verifedName: 'Test Name',

@@ -1,5 +1,5 @@
 export interface WhatsAppBusinessAccount {
-    id: string;
+    id: number;
     name: string;
     currency: string;
     timezone_id: string;
@@ -12,22 +12,22 @@ export interface WhatsAppBusinessAccount {
     };
 }
 export type WhatsappRequestCode = {
-    whatsappBussinessPhoneNumberId: number;
+    whatsappBussinessPhoneNumberId: string;
     codeMethod?: 'SMS' | 'VOICE';
     language?: string
 }
 
 export type WhatsappVerifyCode = {
-    whatsappBussinessPhoneNumberId: number;
+    whatsappBussinessPhoneNumberId: string;
     code: string
 }
 export type WhatsappRegisterPhone = {
-    whatsappBussinessPhoneNumberId: number;
+    whatsappBussinessPhoneNumberId: string;
     messagingProduct: string;
     pin: string;
 }
 export type WhatsappCreatePhone = {
-    whatsappBussinessPhoneNumberId: number;
+    whatsappBussinessPhoneNumberId: string;
     cc: string;
     phoneNumber: string;
     verifedName: string;
