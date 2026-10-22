@@ -38,7 +38,7 @@ describe('MetaWhatsappAccountsService', () => {
     mockClient.post.mockResolvedValue(mockResponse);
 
     const result = await whatsappService.requestCode({
-      whatsappBussinessPhoneNumberId: 123,
+      whatsappBussinessPhoneNumberId: '123',
       codeMethod: 'SMS',
       language: 'pt_BR',
     });
@@ -59,7 +59,7 @@ describe('MetaWhatsappAccountsService', () => {
     mockedAxios.post.mockResolvedValue(mockResponse);
 
     const result = await whatsappService.verifyCode({
-      whatsappBussinessPhoneNumberId: 123,
+      whatsappBussinessPhoneNumberId: '123',
       code: '123456',
     });
 
@@ -79,7 +79,7 @@ describe('MetaWhatsappAccountsService', () => {
     mockedAxios.post.mockResolvedValue(mockResponse);
 
     const result = await whatsappService.registerPhone({
-      whatsappBussinessPhoneNumberId: 123,
+      whatsappBussinessPhoneNumberId: '123',
       messagingProduct: 'whatsapp',
       pin: '123456',
     });
@@ -101,7 +101,7 @@ describe('MetaWhatsappAccountsService', () => {
     mockedAxios.post.mockResolvedValue(mockResponse);
 
     const result = await whatsappService.createPhone({
-      whatsappBussinessPhoneNumberId: 123,
+      whatsappBussinessPhoneNumberId: '123',
       cc: '55',
       phoneNumber: '999999999',
       verifedName: 'Test Name',
