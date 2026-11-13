@@ -1,9 +1,4 @@
-/**
- * @file services/__tests__/whatsapp.test.ts
- * @description Unit tests for MetaWhatsappAccountsService class covering all service methods.
- */
-
-import { MetaWhatsappAccountsService } from '@/services/manager-accounts';
+import { MetaWhatsappAccountsService } from '@/services/whatsapp-manage-accounts';
 import axios from 'axios';
 
 // Mocking axios module to intercept HTTP requests during testing
@@ -87,7 +82,6 @@ describe('MetaWhatsappAccountsService', () => {
     expect(result).toEqual(mockResponse.data);
     expect(mockedAxios.post).toHaveBeenCalledWith(
       '123/register',
-      expect.any(Object),
       expect.any(Object)
     );
   });
@@ -111,7 +105,6 @@ describe('MetaWhatsappAccountsService', () => {
     expect(mockedAxios.post).toHaveBeenCalledWith(
       '123/phone_numbers',
       expect.any(Object),
-      expect.any(Object)
     );
   });
 
@@ -120,6 +113,7 @@ describe('MetaWhatsappAccountsService', () => {
    */
   it('should fetch owned whatsapp business accounts successfully', async () => {
     // AJUSTADO: Inserido propriedades obrigatórias do whatsAppBusinessAccountSchema
+    let bussinessId: string = process.env.BUSSINESS_ID as string
     const mockResponse = {
       data: {
         data: [{
@@ -143,7 +137,7 @@ describe('MetaWhatsappAccountsService', () => {
 
     expect(result).toEqual(mockResponse.data);
     expect(mockClient.get).toHaveBeenCalledWith(
-      '/owned_whatsapp_business_accounts',
+      `/${bussinessId}/owned_whatsapp_business_accounts`,
       expect.any(Object)
     );
   });

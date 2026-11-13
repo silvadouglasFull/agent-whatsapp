@@ -8,11 +8,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "jest",
+    "test": "jest --silent",
     "generate:docs": "NODE_OPTIONS='--import=tsx' next-rest-framework generate"
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^9.1.0",
+    "@fortawesome/free-brands-svg-icons": "^7.3.1",
+    "@fortawesome/free-solid-svg-icons": "^7.3.1",
+    "@fortawesome/react-fontawesome": "^3.5.0",
     "@tailwindcss/turbopack": "^4.3.3",
     "axios": "^1.20.0",
     "axios-debug-log": "^1.0.0",
@@ -37,6 +40,7 @@
     "drizzle-kit": "^0.31.10",
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
+    "jest": "^30.5.2",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
     "typescript": "^5"

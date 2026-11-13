@@ -18,7 +18,6 @@ export function validateInput(schema: ZodType): any {
 export function validateOutput(schema: ZodType): any {
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
         const originalMethod = descriptor.value;
-
         descriptor.value = async function (this: any, ...args: any[]) {
             const result = await originalMethod.apply(this, args);
             return schema.parse(result);

@@ -16,24 +16,24 @@ export const whatsAppBusinessAccountSchema = z.object({
 });
 
 export const whatsappRequestCodeSchema = z.object({
-    whatsappBussinessPhoneNumberId: z.number(),
+    whatsappBussinessPhoneNumberId: z.string(),
     codeMethod: z.union([z.literal("SMS"), z.literal("VOICE")]).optional(),
     language: z.string().optional()
 });
 
 export const whatsappVerifyCodeSchema = z.object({
-    whatsappBussinessPhoneNumberId: z.number(),
+    whatsappBussinessPhoneNumberId: z.string(),
     code: z.string()
 });
 
 export const whatsappRegisterPhoneSchema = z.object({
-    whatsappBussinessPhoneNumberId: z.number(),
+    whatsappBussinessPhoneNumberId: z.string(),
     messagingProduct: z.string(),
     pin: z.string()
 });
 
 export const whatsappCreatePhoneSchema = z.object({
-    whatsappBussinessPhoneNumberId: z.number(),
+    whatsappBussinessPhoneNumberId: z.string(),
     cc: z.string(),
     phoneNumber: z.string(),
     verifedName: z.string()

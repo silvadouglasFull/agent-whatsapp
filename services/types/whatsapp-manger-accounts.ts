@@ -1,5 +1,5 @@
 export interface WhatsAppBusinessAccount {
-    id: number;
+    id: string;
     name: string;
     currency: string;
     timezone_id: string;
@@ -48,3 +48,14 @@ export type WhatsappCreatePhoneReponse = {
     id: number
 }
 
+interface PhoneNumber {
+    id: string;
+    display_phone_number: string;
+    verified_name: string;
+    code_verification_status: string;
+    quality_rating: string;
+}
+
+export interface WabaPhoneNumbersResponse {
+    data: PhoneNumber[];
+}

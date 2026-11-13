@@ -1,5 +1,5 @@
-import { MetaWhatsappAccountsService } from '@/services/manager-accounts';
-import { WhatsappRequestCode } from '@/services/types/whatsapp';
+import { MetaWhatsappAccountsService } from '@/services/whatsapp-manage-accounts';
+import { WhatsappRequestCode } from '@/services/types/whatsapp-manger-accounts';
 import { NextRequest, NextResponse } from 'next/server';
 export async function POST(request: NextRequest) {
     try {

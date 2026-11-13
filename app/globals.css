@@ -1,3 +1,8 @@
+/**
+ * @file app/globals.css
+ * @description Global styles configured with WhatsApp Web Dark Mode theme.
+ */
+
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 @import "flowbite/src/themes/default";
@@ -5,17 +10,27 @@
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
 
+/* WhatsApp Web Dark Mode Color Palette */
 :root {
-    --background: #0f1115;
-    --foreground: #f3f5f7;
-    --surface: #151922;
-    --surface-soft: #1a2030;
-    --surface-muted: #1d2535;
-    --accent: #64b96a;
-    --accent-strong: #82ce87;
-    --text-muted: #95a0b4;
+    --background: #111b21;
+    /* Fundo principal escuro do WhatsApp Web */
+    --foreground: #e9edef;
+    /* Cor de texto principal (clara e legível) */
+    --surface: #202c33;
+    /* Cor de superfícies, painéis e barras */
+    --surface-soft: #222d34;
+    /* Superfície secundária para cartões/inputs */
+    --surface-muted: #2a3942;
+    /* Superfície terciária ou estados de hover */
+    --accent: #00a884;
+    /* Verde principal clássico do WhatsApp */
+    --accent-strong: #25d366;
+    /* Verde brilhante para destaques e botões */
+    --text-muted: #8696a0;
+    /* Texto secundário/muted acinzentado */
 }
 
+/* Mapping custom variables to Tailwind CSS v4 theme */
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -29,40 +44,35 @@
     --font-mono: var(--font-geist-mono);
 }
 
+/* Base HTML configuration */
 html {
     min-height: 100%;
-    background-color: #0f1115;
+    background-color: var(--background);
 }
 
+/* Body layout and WhatsApp Web dark theme background styling */
 body {
     min-height: 100vh;
     min-height: 100dvh;
-    background-color: #0f1115;
-    background-image:
-        radial-gradient(circle at 12% 10%,
-            rgb(100 185 106 / 0.17),
-            transparent 38%),
-        radial-gradient(circle at 88% 0%, rgb(52 94 199 / 0.22), transparent 34%),
-        linear-gradient(145deg, #0f1115 18%, #121722 100%);
+    background-color: var(--background);
+    background-image: linear-gradient(135deg, #111b21 0%, #0b141a 100%);
     background-repeat: no-repeat;
-    background-size:
-        auto,
-        auto,
-        100% 100%;
-    background-position:
-        top left,
-        top right,
-        center;
+    background-size: 100% 100%;
+    background-position: center;
     color: var(--foreground);
     font-family: "Outfit", var(--font-geist-sans), sans-serif;
     overflow-x: clip;
 }
 
-* {
+/* Universal box-sizing reset */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     min-width: 0;
 }
 
+/* Global media and graphic elements scaling */
 img,
 video,
 canvas,
@@ -72,11 +82,13 @@ svg {
     height: auto;
 }
 
+/* Glass panel utility using WhatsApp surface tones */
 .glass-panel {
-    background: rgb(21 25 34 / 0.84);
+    background: rgb(32 44 51 / 0.88);
     backdrop-filter: blur(10px);
 }
 
+/* Mobile responsive border radius adjustments */
 @media (width < 48rem) {
     .glass-panel {
         border-radius: 1rem;

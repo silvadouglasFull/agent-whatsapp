@@ -9,6 +9,7 @@ import axios from "axios";
 
 export class AxiosErrorHandler {
     public static handle(error: unknown): never {
+        console.error(error)
         if (axios.isAxiosError(error)) {
             const status = error.response?.status;
             const metaMessage = error.response?.data?.error?.message || error.response?.data?.message;
