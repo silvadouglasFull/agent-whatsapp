@@ -1,6 +1,6 @@
 import { whatsAppErrorSchema, whatsappGetMessagesTemplateRequestSchema, whatsappGetMessagesTemplateResponseSchema, whatsappSendMessageRequestSchema, whatsappSendMessageResponseSchema } from "@/services/schemas/whatsapp-manage-messages";
 import { z } from "zod";
-type InferWhatsappSendMessageRequestSchema = z.infer<typeof whatsappSendMessageRequestSchema>
+export type InferWhatsappSendMessageRequestSchema = z.infer<typeof whatsappSendMessageRequestSchema>
 type InferWhatsappSendMessageResponseSchema = z.infer<typeof whatsappSendMessageResponseSchema>
 type InferWhatsappSendMessageResponseErrorSchema = z.infer<typeof whatsAppErrorSchema>
 export type WhatsappSendMessageRequest = InferWhatsappSendMessageRequestSchema
