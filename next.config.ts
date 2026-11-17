@@ -1,3 +1,4 @@
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -16,12 +17,17 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '*.ngrok-free.app', // Permite qualquer subdomínio do ngrok
+        hostname: '*.ngrok-free.app',
       },
+      {
+        protocol: 'https',
+        hostname: 'scontent.whatsapp.net',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.scontent.whatsapp.net',
+      }
     ],
-  },
-  compiler: {
-    
   }
 };
 
