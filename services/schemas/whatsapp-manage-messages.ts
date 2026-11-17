@@ -30,10 +30,11 @@ const languageCodeSchema = z.enum(["pt_BR", "en_US"], {
 /**
  * Schema to validate WhatsApp send message request payload.
  */
+export const recipientPhoneNumber = z.string().regex(/^55\d{11}$/, { message: "Invalid phone number" })
 export const whatsappSendMessageRequestSchema = z.object({
     whatsappBussinessPhoneNumberId: z.string(),
     messagingProduct: messagingProductSchema,
-    recipientPhoneNumber: z.string().regex(/^55\d{11}$/, { message: "Invalid phone number" }),
+    recipientPhoneNumber: recipientPhoneNumber,
     type: z.string().optional().default('template'),
     template: z.object({
         name: nameSnakeCaseSchema,
@@ -91,6 +92,9 @@ export const whatsappSendMessageResponseSchema = whatsAppSuccessSchema;
 export const whatsappGetMessagesTemplateRequestSchema = z.object({
     whatsappBussinessPhoneNumberId: z.string()
 })
+export const bodyTextNamedParams = z.array(
+    z.object({ param_name: z.string(), example: z.string() })
+).optional()
 export const whatsappGetMessagesTemplateResponseSchema = z.object({
     data: z.array(
         z.object({
@@ -104,7 +108,12 @@ export const whatsappGetMessagesTemplateResponseSchema = z.object({
                     type: z.string(),
                     format: z.string().optional(),
                     text: z.string().optional(),
-                    example: z.any().optional(),
+                    example: z.object({
+                        header_handle: z.array(z.string()).optional(),
+                        header_text: z.array(z.string()).optional(),
+                        body_text: z.array(z.array(z.string())).optional(),
+                        body_text_named_params: bodyTextNamedParams,
+                    }).passthrough().optional(),
                     buttons: z.array(
                         z.object({
                             type: z.string(),
