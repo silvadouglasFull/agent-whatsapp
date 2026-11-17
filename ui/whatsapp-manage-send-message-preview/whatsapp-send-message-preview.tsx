@@ -64,7 +64,7 @@ export function WhatsappManageSendMessagePreview({
                                         {replaceTextNamedParam({
                                             text: component.text,
                                             namedParams: getNamedParams(component.example?.body_text_named_params),
-                                            valuesOfParam: ['test', 'test2']
+                                            valuesOfParam: [`[the client's name]`, '[the company name]']
                                         })}
                                     </div>
                                 )}

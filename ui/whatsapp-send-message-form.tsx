@@ -33,7 +33,7 @@ export default function WhatsappSendMessageForm({
 
                 <div className="lg:col-span-7 flex flex-col gap-5 bg-neutral-secondary-light p-6 rounded-xl border border-default-medium shadow-sm">
                     <h2 className="text-lg font-semibold text-foreground border-b border-default-medium pb-3">
-                        Configurações do Envio
+                        Shipping Settings
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -51,7 +51,7 @@ export default function WhatsappSendMessageForm({
 
                     <div>
                         <label htmlFor="recipientPhoneNumber" className="block mb-2 text-sm font-medium text-foreground">
-                            To (Número do Destinatário)
+                            To (Recipient's Number)
                         </label>
                         <input
                             id="recipientPhoneNumber"
@@ -70,7 +70,7 @@ export default function WhatsappSendMessageForm({
                             type="submit"
                             className="w-full md:w-auto text-white bg-success hover:bg-success-strong focus:ring-4 focus:ring-success-medium shadow-xs font-medium leading-5 rounded-base text-sm px-6 py-3 focus:outline-none transition-colors"
                         >
-                            Enviar Mensagem
+                            Send Message
                         </button>
                     </div>
                 </div>
@@ -78,7 +78,7 @@ export default function WhatsappSendMessageForm({
                 <div className="lg:col-span-5 sticky top-6 bg-neutral-secondary-light p-6 rounded-xl border border-default-medium shadow-md flex flex-col">
                     <div className="flex items-center justify-between border-b border-default-medium pb-3 mb-4">
                         <h2 className="text-lg font-semibold text-foreground">
-                            Pré-visualização
+                            Preview
                         </h2>
                         <span className="text-xs px-2.5 py-1 bg-brand/10 text-brand rounded-full font-medium">
                             WhatsApp Live Preview
